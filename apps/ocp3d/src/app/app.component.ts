@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'ocp-root',
@@ -7,4 +9,25 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ocp3d';
+
+  url = 'localhost:3333/api'
+
+  response = "";
+
+  constructor(private httpClient: HttpClient) {
+  }
+
+  click() {
+    this.httpClient.get(this.url).pipe(
+      tap(e => console.log(e))
+    ).subscribe(resp =>
+      this.response = resp as string
+    )
+  }
+
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(e) {
+
+  }
+
 }
