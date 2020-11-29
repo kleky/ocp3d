@@ -19,12 +19,7 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "accessToken": "OGViZWNhOTktZDczNi00NjhmLWJiMTgtZWI0M2MwYTIzZWQxfHJlYWQtd3JpdGU=",
-        "cacheableOperations": [
-          "build",
-          "test",
-          "lint",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
         "canTrackAnalytics": false,
         "showUsageWarnings": true
       }
@@ -36,9 +31,10 @@
     },
     "ocp3d-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "ocp3d"
-      ]
+      "implicitDependencies": ["ocp3d"]
+    },
+    "api": {
+      "tags": []
     }
   }
 }
