@@ -10,7 +10,7 @@ import { tap } from 'rxjs/operators';
 export class AppComponent {
   title = 'ocp3d';
 
-  url = 'localhost:3333/api'
+  url = 'http://localhost:3333/api'
 
   response = "";
 
@@ -18,7 +18,7 @@ export class AppComponent {
   }
 
   click() {
-    this.httpClient.get(this.url).pipe(
+    this.httpClient.get(this.url + '/getData').pipe(
       tap(e => console.log(e))
     ).subscribe(resp =>
       this.response = resp as string
