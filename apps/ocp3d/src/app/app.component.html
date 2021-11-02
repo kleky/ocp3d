@@ -7,6 +7,28 @@
   <h1>Welcome to {{ title }}!</h1>
 </header>
 <main>
- <button (click)="click()">GO!...</button>
+  <p>
+    There are currently <strong>{{users}}</strong> users online. Start chatting!
+  </p>
+  <p></p>
+
+  <ul>
+    <li *ngFor="let message of messages">
+      {{message}}
+    </li>
+  </ul>
+
+  <p>
+
+      <textarea spellcheck="true" autoComplete="true" rows="1" class="chat-input" [(ngModel)]="message"
+                placeholder="type message..." (keyup.enter)="addChat(message)"></textarea>
+
+    <button (click)="addChat(message)" slot="end" class="send-chat-button">
+      Add
+    </button>
+
+  </p>
+
+  <button (click)="click()">GO!...</button>
   <em>{{ response }}</em>
 </main>

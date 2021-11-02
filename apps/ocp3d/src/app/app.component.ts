@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { RelayService } from './services/relay.service';
 
 @Component({
   selector: 'ocp-root',
@@ -10,11 +11,12 @@ import { tap } from 'rxjs/operators';
 export class AppComponent {
   title = 'ocp3d';
 
-  url = 'http://localhost:3333/api'
+  url = 'http://localhost:3000/api'
 
   response = "";
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient,
+              private relayService: RelayService) {
   }
 
   click() {
@@ -26,8 +28,30 @@ export class AppComponent {
   }
 
   @HostListener('document:mousemove', ['$event'])
-  onMouseMove(e) {
+  onMouseMove(e: MouseEvent) {
+    this.addChat(`x:${e.clientX} y:${e.clientY}`);
+  }
 
+  public users: number = 0;
+  public message: string = '';
+  public messages: string[] = [];
+
+  ngOnInit(){
+
+    this.relayService.receiveChat().subscribe((message: string) => {
+      this.messages.push(message);
+    });
+
+    this.relayService.getUsers().subscribe((users: number) => {
+      this.users = users;
+    });
+
+  }
+
+  addChat(message: string){
+    this.messages.push(message);
+    this.relayService.sendChat(message);
+    this.message = '';
   }
 
 }
