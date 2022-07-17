@@ -20,10 +20,15 @@
             "main": "apps/ocp3d/src/main.ts",
             "polyfills": "apps/ocp3d/src/polyfills.ts",
             "tsConfig": "apps/ocp3d/tsconfig.app.json",
-            "aot": true,
             "assets": ["apps/ocp3d/src/favicon.ico", "apps/ocp3d/src/assets"],
             "styles": ["apps/ocp3d/src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -53,7 +58,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
