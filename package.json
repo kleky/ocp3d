@@ -45,7 +45,7 @@
     "@nrwl/angular": "10.4.4",
     "@nrwl/express": "^10.4.4",
     "@types/three": "^0.141.0",
-    "ngx-socket-io": "^4.3.0",
+    "ngx-socket-io": "^4.1.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.5",
     "three": "^0.142.0",
