@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { FormsModule } from '@angular/forms';
 
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: { origin: "*:*" } };
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {  } };
 
 
 @NgModule({
